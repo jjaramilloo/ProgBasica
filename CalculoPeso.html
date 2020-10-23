@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Conoces tu peso en otro planeta?</title>
+        <body>
+            <h1>Tu peso en otro planeta</h1>
+            <p>En la tierra pesas diferente que en otros planeas</p>
+            <script>
+                var user = prompt("Cual es su peso?");
+                /*var weigth = parseInt(user); convierte la cadena en un numero entero*/
+                var weigth = parseFloat(user);
+                var g_earth = 9.8;
+                var g_mars = 3.7;
+                var g_jupiter = 24.8;
+                /*var weigth = 67>;*/
+                var weight_planet;
+                weight_planet = weigth*g_mars/g_earth;
+                /*weight_planet = parseInt(weight_planet);*/
+                document.write("Tu peso en marte es <strong>" + weight_planet.toFixed(2) + " Kg</strong>");                
+            </script>
+        </body>
+    </head>
+</html>
