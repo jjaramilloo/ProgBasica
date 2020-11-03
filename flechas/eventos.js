@@ -13,7 +13,7 @@ var papel = cuadrito.getContext("2d"); //el canbas se hace en 2d
 var x= 150; //posición donde inicia el x para pintar con teclas
 var y=150; //posición donde inicia el y para pintar con teclas
 var colorcito = "#4A148C";
-document.addEventListener("mouseup", dibujarMouse); //escuchar el evento del mouse, se usa mouseup para tener mayor control al dibujar
+document.addEventListener("mousedown", dibujarMouse); //escuchar el evento del mouse, se usa mouseup para tener mayor control al dibujar
 
 
 //dibujarLinea("red", 100, 100, 200, 200, papel);
@@ -31,7 +31,8 @@ function dibujarMouse(click)
    //console.log("Y " + click.layerY);
    if (estado == 0)
    {
-    dibujarLinea(colorcito, x, y, click.layerX, click.layerY, papel);
+    //dibujarLinea(colorcito, x, y, click.layerX, click.layerY, papel);
+    dibujarLinea(colorcito, px, py, click.layerX, click.layerY, papel);
    }
    px = click.layerX;
    py = click.layerY;
