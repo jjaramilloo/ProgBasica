@@ -18,6 +18,14 @@ var pollo = {
     cargarOK: false
 };
 
+var teclas = {
+    LEFT : 37,
+    UP : 38,
+    RIGHT: 39,
+    DOWN :40
+};
+document.addEventListener("keyup", moverTeclado)
+
 var cantidad = aletorio(1,10);
 
 fondo.imagen = new Image(); //Es la creación de un objeto, para nombrarlo se hacer con mayuscula al inicio
@@ -75,6 +83,30 @@ function dibujar()
             papel.drawImage(vaca.imagen, x, y);
         }
     }
+    if (cerdo.cargarOK);
+    {
+        console.log(cantidad);
+        for(var c=0; c < cantidad; c++)
+        {
+            var x = aletorio(0,7);
+            var y = aletorio(0,10);
+            var x = x * 60; // ¿por qué se vuelve a declarar?
+            var y = y * 40;
+            papel.drawImage(cerdo.imagen, x, y);
+        }
+    }
+    if (pollo.cargarOK);
+    {
+        console.log(cantidad);
+        for(var p=0; p < cantidad; p++)
+        {
+            var x = aletorio(0,7);
+            var y = aletorio(0,10);
+            var x = x * 60; // ¿por qué se vuelve a declarar?
+            var y = y * 40;
+            papel.drawImage(pollo.imagen, x, y);
+        }
+    }
 }
 function aletorio(min, max)
 {
@@ -82,6 +114,39 @@ function aletorio(min, max)
     resultado = Math.floor(Math.random() * (max - min + 1)) + min;
     return resultado;
 }
+var x = aletorio(0,10);
+var y = aletorio(0,10);
+
+function moverTeclado(evento)
+{
+    var movimiento = 3;  //este es la distancia entre las lineas, a medida que es menor las lineas quedan mas suaves
+    switch(evento.keyCode)
+    {
+        case teclas.LEFT:
+            //console.log("Va a la izquierda");            
+            papel.drawImage(cerdo.imagen, x, y);
+            x = x - movimiento;
+        break;
+        case teclas.UP:
+            //console.log("Va arriba");
+            papel.drawImage(cerdo.imagen, x, y);
+            y = y - movimiento;
+        break;
+        case teclas.RIGHT:
+            //console.log("Va a la derecha");
+            papel.drawImage(cerdo.imagen, x, y);
+            x = x + movimiento;
+        break;
+        case teclas.DOWN: 
+           //console.log("Va abajo");
+           papel.drawImage(cerdo.imagen, x, y);
+           y = y + movimiento;
+        break;
+        default:
+            console.log("Otra tecla");
+        break;
+    }
+}   
 //var mapa = "tile.png";
 //var fondo = new Image(); //Es la creación de un objeto, para nombrarlo se hacer con mayuscula al inicio
 //fondo.src = mapa; //se pasa la url por el atributo src
