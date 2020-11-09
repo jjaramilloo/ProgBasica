@@ -1,26 +1,27 @@
-var caja = []; // Arreglo
-caja["100USD"] = "100.png"; //Asignación de un valor a una posición indexada con string
-caja["50USD"] = "50.png";
-caja["20USD"] = "20.png";
-caja["10USD"] = "10.png";
-caja["5USD"] = "5.png";
+var imagenes = []; // Arreglo
+imagenes ["100USD"] = "100.jpg"; //Asignación de un valor a una posición indexada con string
+imagenes ["USD"] = "50.jpg";
+imagenes ["20USD"] = "20.jpg";
+imagenes ["10USD"] = "10.jpg";
+imagenes ["5USD"] = "5.jpg";
 
 class Billete
 {
-    constructor(n, v, c)
+    constructor(v, c)
     {
-        this.nombre = n;
         this.valor = v;
         this.cantidad = c;
+        this.imagen = new Image();
+        this.imagen.src = imagenes[this.valor];
     }
 }
-//var caja = [];
+var caja = [];
 var entregado = [];
-caja.push(new Billete("100USD", 100,10));
-caja.push(new Billete("50USD, 50,15));
-caja.push(new Billete("200USD", 20,20));
-caja.push(new Billete("10USD, 10,20));
-caja.push(new Billete("5USD, 5,30));
+caja.push(new Billete(100, 10));
+caja.push(new Billete(50, 15));
+caja.push(new Billete(20, 20));
+caja.push(new Billete(10, 20));
+caja.push(new Billete(5, 30));
 var dinero = 0;
 var div =0;
 var papeles=0;
